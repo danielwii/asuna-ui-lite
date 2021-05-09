@@ -1,0 +1,44 @@
+{
+  "compilerOptions": {
+    "experimentalDecorators": true,
+    "moduleResolution": "Node",
+
+    /* Basic Options */
+    "target": "ES5",
+    "module": "ES2020",
+    "jsx": "react",
+
+    /* Strict Type-Checking Options */
+    "strict": false,
+    "skipLibCheck": true,
+    "lib": ["DOM", "ESNext"],
+
+    /* Additional Checks */
+
+    /* Module Resolution Options */
+    /* List of root folders whose combined content represents the structure of the project at runtime. */
+    "rootDirs": ["src", "stories"],
+    // Ensure that Babel can safely transpile files in the TypeScript project
+    "isolatedModules": true,
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+
+    /* Source Map Options */
+    "sourceRoot": "src",
+    "sourceMap": true,
+//        "inlineSourceMap": true,
+    "inlineSources": true,
+
+    /* Experimental Options */
+    "incremental": true,
+
+    /* Advanced Options */
+
+    "outDir": "dist",
+    // Ensure that .d.ts files are created by tsc, but not .js files
+    "declaration": true,
+    "declarationDir": "dist"
+  },
+  "include": ["src/**/*.ts*"],
+  "exclude": ["node_modules", "dist"]
+}

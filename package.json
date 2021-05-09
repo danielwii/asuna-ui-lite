@@ -1,0 +1,36 @@
+{
+  "name": "asuna-ui-lite",
+  "version": "0.0.1",
+  "scripts": {
+    "clean": "rm -rf dist",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
+  },
+  "resolutions": {
+    "fsevents": "^2"
+  },
+  "peerDependencies": {
+    "react": ">=17.0.0",
+    "react-dom": ">=17.0.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7",
+    "@mdx-js/react": "^1",
+    "@storybook/addon-actions": "^6",
+    "@storybook/addon-docs": "^6",
+    "@storybook/addon-essentials": "^6",
+    "@storybook/addon-links": "^6",
+    "@storybook/addon-postcss": "^2",
+    "@storybook/builder-webpack5": "^6",
+    "@storybook/react": "^6",
+    "babel-loader": "^8",
+    "postcss-custom-properties": "^11",
+    "postcss-import": "^14",
+    "postcss-preset-env": "^6",
+    "prettier": "^2",
+    "react": "^17",
+    "react-dom": "^17",
+    "tailwindcss": "^2",
+    "typescript": "^4.2.4"
+  }
+}
