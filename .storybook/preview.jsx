@@ -1,6 +1,6 @@
 import React from 'react';
 
-// import '../src/index.css';
+import '../src/index.css';
 
 export const decorators = [
   (Story) => (
@@ -10,13 +10,12 @@ export const decorators = [
   ),
 ];
 
-
 export const parameters = {
-    actions: { argTypesRegex: "^on[A-Z].*" },
-    controls: {
-        matchers: {
-            color: /(background|color)$/i,
-            date: /Date$/,
-        },
+  actions: { argTypesRegex: '^on[A-Z].*' },
+  controls: {
+    matchers: {
+      color: /(background|color)$/i,
+      date: /Date$/,
     },
-}
+  },
+};
