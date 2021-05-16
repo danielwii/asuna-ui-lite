@@ -26,7 +26,7 @@
     /* Source Map Options */
     "sourceRoot": "src",
     "sourceMap": true,
-//        "inlineSourceMap": true,
+    //        "inlineSourceMap": true,
     "inlineSources": true,
 
     /* Experimental Options */
@@ -39,6 +39,6 @@
     "declaration": true,
     "declarationDir": "dist"
   },
-  "include": ["src/**/*.ts*"],
+  "include": ["src/**/*.ts*", "stories/Button.stories.tsx"],
   "exclude": ["node_modules", "dist"]
 }
