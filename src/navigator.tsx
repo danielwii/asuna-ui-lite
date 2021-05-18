@@ -3,11 +3,11 @@ import _ from 'lodash';
 
 export interface NavigatorProps {
   items: { name: string; link: string }[];
-  activeItem?: string;
+  selected?: string;
   onClick?: (item: string) => void;
 }
 
-export const Navigator: React.FC<NavigatorProps> = ({ items, activeItem, onClick }) => {
+export const Navigator: React.FC<NavigatorProps> = ({ items, selected, onClick }) => {
   return (
     <div className="mx-auto">
       <div className="relative z-10">
@@ -18,7 +18,7 @@ export const Navigator: React.FC<NavigatorProps> = ({ items, activeItem, onClick
                 <a
                   href={link}
                   className={`font-medium text-gray-700 hover:text-blue-500 ${
-                    activeItem === name && 'text-blue-700 text-blue-700'
+                    selected === name && 'text-blue-700 text-blue-700'
                   }`}
                   onClick={() => onClick(name)}
                 >
