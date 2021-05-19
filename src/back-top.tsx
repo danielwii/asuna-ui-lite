@@ -1,8 +1,14 @@
 import React, { useEffect, useState } from 'react';
 
 import { AngleUp } from './icons';
+import { ColorType } from './interface';
 
-export const BackTop: React.FC<{ color?: string }> = ({ color = 'blue' }) => {
+export interface BackTopProps {
+  position?: string;
+  color?: ColorType;
+}
+
+export const BackTop: React.FC<BackTopProps> = ({ color = 'purple', position = 'right-3 bottom-3' }) => {
   const [isVisible, setIsVisible] = useState<boolean>(false);
 
   useEffect(() => {
@@ -25,7 +31,7 @@ export const BackTop: React.FC<{ color?: string }> = ({ color = 'blue' }) => {
       id="top"
       aria-label="scrollTop"
       type="button"
-      className={`w-16 h-16 fixed text-center text-white text-xl right-3 bottom-3 bg-${color}-800 focus:outline-none rounded-full 
+      className={`w-16 h-16 fixed text-center text-white text-xl ${position} bg-${color}-800 focus:outline-none rounded-full 
       cursor-pointer transition-all delay-200 ease-in-out ${isVisible ? 'opacity-1000' : 'opacity-0'}`}
       onClick={() => {
         scrollTop();

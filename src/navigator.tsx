@@ -14,9 +14,10 @@ export const Navigator: React.FC<NavigatorProps> = ({ items, selected, onClick }
         <div className="relative pt-6 px-2 sm:px-4 lg:px-6">
           <nav className="relative flex items-center justify-between sm:h-10 lg:justify-start">
             <div className="space-x-8">
-              {_.map(items, ({ name, link }) => (
+              {_.map(items, ({ name, link }, idx) => (
                 <a
                   href={link}
+                  key={idx}
                   className={`font-medium text-gray-700 hover:text-blue-500 ${
                     selected === name && 'text-blue-700 text-blue-700'
                   }`}

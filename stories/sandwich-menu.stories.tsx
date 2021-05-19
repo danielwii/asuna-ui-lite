@@ -11,7 +11,7 @@ const items = [
   { name: 'News', link: '#' },
 ];
 
-storiesOf('SandwichMenu', module).add('Default', () => (
+storiesOf('Navigation', module).add('SandwichMenu', () => (
   <StoreProvider initialState={{ selected: 'Home' }}>
     {(state, setState) => (
       <SandwichMenu items={items} selected={state.selected} onClick={(item) => setState({ selected: item })} />
