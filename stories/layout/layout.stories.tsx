@@ -1,6 +1,6 @@
 import { storiesOf } from '@storybook/react';
 import React from 'react';
-import { Layout } from '../src/layout';
+import { Layout } from '../../src/layout';
 
 const { Header } = Layout;
 

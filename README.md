@@ -13,7 +13,8 @@
 ### Navigation 导航
 
 - BackTop 回到顶部
-- Sandwich Menu 三明治菜单 (Mobile) / Navigator 导航栏 (PC)
+- Sandwich Menu 三明治菜单 (Mobile)
+- Navigator 导航栏 (PC)
 
 ### Data Entry 数据录入
 
