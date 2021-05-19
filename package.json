@@ -4,7 +4,9 @@
   "scripts": {
     "clean": "rm -rf dist",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook",
+    "build": "yarn clean && yarn tsc --emitDeclarationOnly && yarn build:js",
+    "build:js": "NODE_ENV=production babel src --out-dir dist --extensions '.ts,.tsx' --source-maps"
   },
   "resolutions": {
     "fsevents": "^2"
@@ -14,7 +16,12 @@
     "react-dom": ">=17.0.0"
   },
   "devDependencies": {
+    "@babel/cli": "^7",
     "@babel/core": "^7",
+    "@babel/plugin-proposal-decorators": "^7",
+    "@babel/plugin-transform-runtime": "^7",
+    "@babel/preset-env": "^7",
+    "@babel/preset-typescript": "^7",
     "@mdx-js/react": "^1",
     "@storybook/addon-actions": "^6",
     "@storybook/addon-docs": "^6",
@@ -26,6 +33,10 @@
     "@types/faker": "^5.5.5",
     "@types/lodash": "^4.14.169",
     "babel-loader": "^8",
+    "babel-plugin-minify-dead-code-elimination": "^0",
+    "babel-plugin-transform-remove-console": "^6",
+    "babel-plugin-transform-remove-imports": "^1",
+    "babel-preset-react-app": "^10",
     "faker": "^5.5.3",
     "postcss-custom-properties": "^11",
     "postcss-import": "^14",

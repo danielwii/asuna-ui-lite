@@ -36,26 +36,6 @@ export interface CarouselProps {
   children?: ReactChild[];
 }
 
-const arrowStyles: CSSProperties = {
-  position: 'absolute',
-  zIndex: 2,
-  top: 'calc(50% - 15px)',
-  width: 30,
-  height: 'h-30',
-  cursor: 'pointer',
-  outline: 0,
-};
-
-const indicatorStyles: CSSProperties = {
-  background: '#fff',
-  width: 8,
-  height: 8,
-  display: 'inline-block',
-  borderRadius: '50%',
-  margin: '20px 8px',
-  outline: 0,
-};
-
 export const Carousel: React.FC<CarouselProps> = ({
   config,
   carouselLeftArrow,
@@ -63,6 +43,8 @@ export const Carousel: React.FC<CarouselProps> = ({
   selectedDotColor,
   onChange,
   children,
+  arrowStyles,
+  indicatorStyles,
 }) => (
   <RsCarousel
     {...config}
