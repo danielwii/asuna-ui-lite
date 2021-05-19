@@ -2946,6 +2946,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/faker@npm:^5.5.5":
+  version: 5.5.5
+  resolution: "@types/faker@npm:5.5.5"
+  checksum: cffe155c4faf62c7640da15c2030553d6d55681bec765c2f796af2bc6c8441a675f0a716dd9a9ad196b25a1d40258c4de018dac7ba5c2d3f15bc22d464b6c13f
+  languageName: node
+  linkType: hard
+
 "@types/glob-base@npm:^0.3.0":
   version: 0.3.0
   resolution: "@types/glob-base@npm:0.3.0"
@@ -4071,8 +4078,10 @@ __metadata:
     "@storybook/addon-postcss": ^2
     "@storybook/builder-webpack5": ^6
     "@storybook/react": ^6
+    "@types/faker": ^5.5.5
     "@types/lodash": ^4.14.169
     babel-loader: ^8
+    faker: ^5.5.3
     lodash: ^4.17.21
     postcss-custom-properties: ^11
     postcss-import: ^14
@@ -4080,6 +4089,7 @@ __metadata:
     prettier: ^2
     react: ^17
     react-dom: ^17
+    react-responsive-carousel: ^3.2.18
     tailwindcss: ^2
     typescript: ^4.2.4
   peerDependencies:
@@ -6577,6 +6587,13 @@ __metadata:
     snapdragon: ^0.8.1
     to-regex: ^3.0.1
   checksum: ce23be772ff536976902aa0193a6d167abad229ca40fb4c1de2fd71c0116eeae168a02f6508d41382eb918fcbafb66dba61d498754051964a167c98210c62b28
+  languageName: node
+  linkType: hard
+
+"faker@npm:^5.5.3":
+  version: 5.5.3
+  resolution: "faker@npm:5.5.3"
+  checksum: d03b74947497b9f6e16ce3b8e06299f95190f942064fc8a43ebfc39b0c447160e00fdf2355060a2589b4aa5827ddcf35cc50674f5a229b2d367b2eb5a3380490
   languageName: node
   linkType: hard
 
@@ -11032,7 +11049,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"prop-types@npm:^15.0.0, prop-types@npm:^15.6.0, prop-types@npm:^15.6.1, prop-types@npm:^15.6.2, prop-types@npm:^15.7.2":
+"prop-types@npm:^15.0.0, prop-types@npm:^15.5.8, prop-types@npm:^15.6.0, prop-types@npm:^15.6.1, prop-types@npm:^15.6.2, prop-types@npm:^15.7.2":
   version: 15.7.2
   resolution: "prop-types@npm:15.7.2"
   dependencies:
@@ -11366,6 +11383,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"react-easy-swipe@npm:^0.0.21":
+  version: 0.0.21
+  resolution: "react-easy-swipe@npm:0.0.21"
+  dependencies:
+    prop-types: ^15.5.8
+  checksum: fa493f3f5cc76cdbd1e88c5932bfbb2adf7bb5bcc40f9e56d2b0945a5a5fc471530642814f1e72a77d4b972c6c6d2cebfea2d80e5fcec5b8c341f1599f002009
+  languageName: node
+  linkType: hard
+
 "react-element-to-jsx-string@npm:^14.3.2":
   version: 14.3.2
   resolution: "react-element-to-jsx-string@npm:14.3.2"
@@ -11474,6 +11500,17 @@ __metadata:
   version: 0.8.3
   resolution: "react-refresh@npm:0.8.3"
   checksum: 38f06df8e0a20701b96e5d680838a3528d66cfb53db79843d30cb9517df3262ec596607147439975267bf0634bee77101db37298ea79b5742cc28664632f3c76
+  languageName: node
+  linkType: hard
+
+"react-responsive-carousel@npm:^3.2.18":
+  version: 3.2.18
+  resolution: "react-responsive-carousel@npm:3.2.18"
+  dependencies:
+    classnames: ^2.2.5
+    prop-types: ^15.5.8
+    react-easy-swipe: ^0.0.21
+  checksum: 45fe74987b4c087816f9dd3746122712d9e8fc0b28561a70d9e4f01fcfecad445eb8f3721b934cd856279a9a72111c0cea863680f226f45b7c033d40f9ed76a2
   languageName: node
   linkType: hard
 

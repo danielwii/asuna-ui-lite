@@ -1,7 +1,6 @@
 import { storiesOf } from '@storybook/react';
 import React from 'react';
-import { SandwichMenu } from '../../src/sandwich-menu';
-import { StoreProvider } from '../../src/helper';
+import { SandwichMenu, StoreProvider } from '../../src';
 
 const items = [
   { name: 'Home', link: '#' },

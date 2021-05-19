@@ -1,7 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { Radio } from '../../src/radio';
-import { StoreProvider } from '../../src/helper';
+import { Radio, StoreProvider } from '../../src/';
 
 const items = [
   { text: 'basketball', name: 'sports', value: 'basketball' },

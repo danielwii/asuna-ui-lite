@@ -1,7 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { Switch } from '../../src/switch';
-import { StoreProvider } from '../../src/helper';
+import { Switch, StoreProvider } from '../../src';
 
 storiesOf('Data Entry', module).add('Switch', () => (
   <StoreProvider initialState={{ checked: true }}>

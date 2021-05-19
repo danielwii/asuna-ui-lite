@@ -1,7 +1,6 @@
 import { storiesOf } from '@storybook/react';
 import React from 'react';
-import { Navigator } from '../../src/navigator';
-import { StoreProvider } from '../../src/helper';
+import { Navigator, StoreProvider } from '../../src';
 
 const items = [
   { name: 'Home', link: '#' },

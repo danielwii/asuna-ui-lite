@@ -1,6 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { BackTop } from '../../src/back-top';
+import { BackTop } from '../../src';
 
 storiesOf('Navigation', module).add('BackTop', () => (
   <div style={{ height: '200vh' }}>
