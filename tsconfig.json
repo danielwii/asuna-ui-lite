@@ -34,11 +34,12 @@
 
     /* Advanced Options */
 
+    "rootDir": "src",
     "outDir": "dist",
     // Ensure that .d.ts files are created by tsc, but not .js files
     "declaration": true,
     "declarationDir": "dist"
   },
-  "include": ["src/**/*.ts*", "stories/Button.stories.tsx"],
+  "include": ["src/**/*.ts*"],
   "exclude": ["node_modules", "dist"]
 }
