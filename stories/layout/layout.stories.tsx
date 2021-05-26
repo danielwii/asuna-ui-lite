@@ -4,7 +4,7 @@ import { Layout } from '../../src';
 
 const { Header } = Layout;
 
-storiesOf('Layout', module).add('Default', () => (
+storiesOf('Layout', module).add('Layout', () => (
   <Layout>
     <Header className="h-64 bg-blue-200">The header</Header>
   </Layout>
