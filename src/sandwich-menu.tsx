@@ -2,38 +2,28 @@ import React, { useState } from 'react';
 import { NaviIcon, CloseIcon } from './icons';
 import _ from 'lodash';
 
-export interface SandwichMenuProps {
-  items: { name: string; link: string }[];
-  selected?: string;
-  onClick?: (item: string) => void;
+export interface SandwichItemProps {
+  selected?: boolean;
+  name?: string;
+  className?: string;
+}
+
+export interface SandwichMenuProps<T> {
+  items: T[];
+  renderItem: (item: T, idx: number) => React.ReactNode;
   bgColor?: string;
   textColor?: string;
 }
 
-export const SandwichMenu: React.FC<SandwichMenuProps> = ({
-  items,
-  selected,
-  bgColor = 'rgb(29, 78, 137, 1)',
-  onClick,
-  textColor = 'white',
-}) => {
+const Item: React.FC<SandwichItemProps> = ({ selected, children, className }) => (
+  <li className={selected ? `${className} cursor-pointer` : 'text-gray-300'}>{children}</li>
+);
+
+function SandwichMenu<T>({ items, renderItem, bgColor = 'rgb(29, 78, 137, 1)' }: SandwichMenuProps<T>) {
   const [open, setOpen] = useState(false);
 
-  const menus = (
-    <ul
-      className="w-full h-auto flex flex-col justify-around text-gray-100 pl-5 mt-2 z-30"
-      style={{ background: bgColor }}
-    >
-      {_.map(items, ({ link, name }, idx) => (
-        <li key={idx} className={`my-2 text-${textColor} ${selected === name && 'font-bold'}`}>
-          <a href={link} onClick={() => onClick(name)}>
-            {name}
-          </a>
-        </li>
-      ))}
-    </ul>
-  );
   window.onclick = () => setOpen(false);
+
   return (
     <>
       <div
@@ -45,7 +35,18 @@ export const SandwichMenu: React.FC<SandwichMenuProps> = ({
       >
         {open ? <CloseIcon /> : <NaviIcon />}
       </div>
-      {open && menus}
+      {open && (
+        <ul
+          className="w-full h-auto flex flex-col justify-around text-gray-100 pl-5 mt-2 z-30"
+          style={{ background: bgColor }}
+        >
+          {_.map(items, (item, idx) => renderItem(item, idx))}
+        </ul>
+      )}
     </>
   );
-};
+}
+
+SandwichMenu.Item = Item;
+
+export { SandwichMenu };

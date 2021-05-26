@@ -3,8 +3,8 @@ import _ from 'lodash';
 import classnames from 'classnames';
 
 export interface NavigatorItemProps {
-  selected: boolean;
-  name: string;
+  selected?: boolean;
+  name?: string;
   className?: string;
 }
 

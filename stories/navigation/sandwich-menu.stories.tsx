@@ -2,18 +2,23 @@ import { storiesOf } from '@storybook/react';
 import React from 'react';
 import { SandwichMenu, StoreProvider } from '../../src';
 
-const items = [
-  { name: 'Home', link: '#' },
-  { name: 'Product', link: '#' },
-  { name: 'Contact', link: '#' },
-  { name: 'About', link: '#' },
-  { name: 'News', link: '#' },
-];
+const items = [{ name: 'Home' }, { name: 'Product' }, { name: 'Contact' }, { name: 'About' }, { name: 'News' }];
+
+const { Item } = SandwichMenu;
 
 storiesOf('Navigation', module).add('SandwichMenu', () => (
   <StoreProvider initialState={{ selected: 'Home' }}>
     {(state, setState) => (
-      <SandwichMenu items={items} selected={state.selected} onClick={(item) => setState({ selected: item })} />
+      <SandwichMenu
+        items={items}
+        renderItem={(item, idx) => (
+          <Item {...item} selected={state.selected === item.name} key={idx}>
+            <div className="cursor-pointer my-3" onClick={() => setState({ selected: item.name })}>
+              {item.name}
+            </div>
+          </Item>
+        )}
+      />
     )}
   </StoreProvider>
 ));
