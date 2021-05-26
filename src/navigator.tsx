@@ -1,35 +1,39 @@
 import React from 'react';
 import _ from 'lodash';
+import classnames from 'classnames';
 
-export interface NavigatorProps {
-  items: { name: string; link: string }[];
-  selected?: string;
-  onClick?: (item: string) => void;
+export interface NavigatorItemProps {
+  selected: boolean;
+  name: string;
+  className?: string;
 }
 
-export const Navigator: React.FC<NavigatorProps> = ({ items, selected, onClick }) => {
+export interface NavigatorProps<T> {
+  items: T[];
+  className?: string;
+  renderItem: (item: T, idx: number) => React.ReactNode;
+}
+
+const Item: React.FC<NavigatorItemProps> = ({
+  selected,
+  children,
+  className = 'text-blue-500 font-bold text-shadow',
+}) => <li className={selected ? `${className} cursor-pointer` : 'text-gray-300'}>{children}</li>;
+
+function Navigator<T>({ items, className = 'lg:space-x-10 xl:space-x-10', renderItem }: NavigatorProps<T>) {
   return (
-    <div className="mx-auto">
-      <div className="relative z-10">
-        <div className="relative pt-6 px-2 sm:px-4 lg:px-6">
-          <nav className="relative flex items-center justify-between sm:h-10 lg:justify-start">
-            <div className="space-x-8">
-              {_.map(items, ({ name, link }, idx) => (
-                <a
-                  href={link}
-                  key={idx}
-                  className={`font-medium text-gray-700 hover:text-blue-500 ${
-                    selected === name && 'text-blue-700 text-blue-700'
-                  }`}
-                  onClick={() => onClick(name)}
-                >
-                  {name}
-                </a>
-              ))}
-            </div>
-          </nav>
-        </div>
-      </div>
+    <div className="ml-10 lg:ml-8 xl:ml-8 3xl:ml-20 flex justify-end">
+      <ul
+        className={classnames(
+          `inline-flex items-center text-base lg:text-sm xl:text-sm 3xl:text-xl text-white space-x-12 3xl:space-x-15 ${className}`,
+        )}
+      >
+        {_.map(items, (item, idx) => renderItem(item, idx))}
+      </ul>
     </div>
   );
-};
+}
+
+Navigator.Item = Item;
+
+export { Navigator };

@@ -1,12 +1,11 @@
 import React from 'react';
-import { ColorType } from './interface';
 
 export interface SwitchProps {
   disabled?: boolean;
   checked?: boolean;
   onClick?: () => void;
   wording?: { on?: string; off?: string };
-  colors?: { onColor?: ColorType; offColor?: ColorType };
+  colors?: { onColor?: string; offColor?: string };
 }
 export const Switch: React.FC<SwitchProps> = ({ disabled = false, checked = false, onClick, wording, colors }) => {
   return (
@@ -14,7 +13,7 @@ export const Switch: React.FC<SwitchProps> = ({ disabled = false, checked = fals
       role="button"
       className={`border-box w-14 h-6 rounded-full p-0 border-0 relative inline-block align-bottom duration-1000
       ease-in-out appearance-none focus:outline-none ${
-        checked ? `bg-${colors?.onColor ?? 'blue'}-500` : `bg-${colors?.offColor ?? 'gray'}-300`
+        checked ? `bg-${colors?.onColor ?? 'blue-500'}` : `bg-${colors?.offColor ?? 'gray-300'}`
       }
       ${disabled ? 'cursor-not-allowed opacity-30' : 'cursor-pointer'}`}
       onClick={onClick}
