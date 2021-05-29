@@ -14,7 +14,7 @@ export const Switch: React.FC<SwitchProps> = ({ disabled = false, checked = fals
       role="button"
       className={classnames(`border-box w-14 h-6 rounded-full p-0 border-0 relative inline-block align-bottom duration-1000
       ease-in-out appearance-none focus:outline-none ${disabled ? 'cursor-not-allowed opacity-30' : 'cursor-pointer'}`)}
-      style={{ backgroundColor: checked ? colors?.onColor ?? '#1E90FF' : colors?.offColor ?? '#C0C0C0' }}
+      style={{ backgroundColor: checked ? colors?.onColor ?? '#1E90FF' : colors?.offColor ?? '#04A6C2' }}
       onClick={onClick}
     >
       <div className="flex items-center justify-around">
