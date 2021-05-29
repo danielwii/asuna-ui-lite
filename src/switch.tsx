@@ -1,4 +1,5 @@
 import React from 'react';
+import classnames from 'classnames';
 
 export interface SwitchProps {
   disabled?: boolean;
@@ -11,11 +12,9 @@ export const Switch: React.FC<SwitchProps> = ({ disabled = false, checked = fals
   return (
     <button
       role="button"
-      className={`border-box w-14 h-6 rounded-full p-0 border-0 relative inline-block align-bottom duration-1000
-      ease-in-out appearance-none focus:outline-none ${
-        checked ? `bg-${colors?.onColor ?? 'blue-500'}` : `bg-${colors?.offColor ?? 'gray-300'}`
-      }
-      ${disabled ? 'cursor-not-allowed opacity-30' : 'cursor-pointer'}`}
+      className={classnames(`border-box w-14 h-6 rounded-full p-0 border-0 relative inline-block align-bottom duration-1000
+      ease-in-out appearance-none focus:outline-none ${disabled ? 'cursor-not-allowed opacity-30' : 'cursor-pointer'}`)}
+      style={{ backgroundColor: checked ? colors?.onColor ?? '#1E90FF' : colors?.offColor ?? '#C0C0C0' }}
       onClick={onClick}
     >
       <div className="flex items-center justify-around">
