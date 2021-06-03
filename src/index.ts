@@ -1,4 +1,5 @@
 export * from './back-top';
+export * from './banner-box';
 export * from './carousel';
 export * from './footer';
 export * from './helper';
