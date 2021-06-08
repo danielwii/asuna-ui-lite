@@ -34,6 +34,8 @@ export interface CarouselProps {
   isMobile?: boolean;
   onChange?: (idx: number) => void;
   children?: ReactChild[];
+  handlePrwClick?: () => void;
+  handleNextClick?: () => void;
 }
 
 export const Carousel: React.FC<CarouselProps> = ({
@@ -45,20 +47,38 @@ export const Carousel: React.FC<CarouselProps> = ({
   children,
   arrowStyles,
   indicatorStyles,
+  handleNextClick,
+  handlePrwClick,
 }) => (
   <RsCarousel
     {...config}
     onChange={onChange}
     renderArrowPrev={(onClickHandler, hasPrev, label) =>
       hasPrev && (
-        <button type="button" onClick={onClickHandler} title={label} style={{ ...arrowStyles, left: 30 }}>
+        <button
+          type="button"
+          onClick={() => {
+            onClickHandler();
+            handlePrwClick();
+          }}
+          title={label}
+          style={{ ...arrowStyles, left: 30 }}
+        >
           {carouselLeftArrow}
         </button>
       )
     }
     renderArrowNext={(onClickHandler, hasNext, label) =>
       hasNext && (
-        <button type="button" onClick={onClickHandler} title={label} style={{ ...arrowStyles, right: 30 }}>
+        <button
+          type="button"
+          onClick={() => {
+            onClickHandler();
+            handleNextClick();
+          }}
+          title={label}
+          style={{ ...arrowStyles, right: 30 }}
+        >
           {carouselRightArrow}
         </button>
       )

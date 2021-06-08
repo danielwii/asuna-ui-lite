@@ -1,4 +1,4 @@
-import React, { CSSProperties } from 'react';
+import React, { CSSProperties, useEffect } from 'react';
 import { Carousel, CarouselProps } from '../../src';
 import { storiesOf } from '@storybook/react';
 import faker from 'faker';
@@ -37,21 +37,31 @@ const carouselLeftArrow = <div className="text-3xl text-white font-normal cursor
 const carouselRightArrow = <div className="text-3xl text-white font-normal cursor-pointer">→</div>;
 
 const customizedProps: CarouselProps = {
-  config: { centerMode: true },
+  config: { centerMode: true, showThumbs: false },
   arrowStyles,
   indicatorStyles,
   carouselLeftArrow,
   carouselRightArrow,
 };
 
-storiesOf('Data Display', module).add('Carousel', () => (
-  <div className="w-3/4">
-    <Carousel {...customizedProps}>
-      {_.map(images, ({ src, alt }, idx) => (
-        <div key={idx}>
-          <img src={src} alt={alt} />
-        </div>
-      ))}
-    </Carousel>
-  </div>
-));
+storiesOf('Data Display', module).add('Carousel', () => {
+  const handleChange = () => {
+    const items = document.querySelectorAll('ul>li:not(.selected)');
+
+    items.forEach((item) => {
+      item.classList.add('opacity-20');
+    });
+    console.log('changed');
+  };
+  return (
+    <div className="w-3/4">
+      <Carousel {...customizedProps} handleNextClick={handleChange} handlePrwClick={handleChange}>
+        {_.map(images, ({ src, alt }, idx) => (
+          <div key={idx}>
+            <img src={src} alt={alt} />
+          </div>
+        ))}
+      </Carousel>
+    </div>
+  );
+});
