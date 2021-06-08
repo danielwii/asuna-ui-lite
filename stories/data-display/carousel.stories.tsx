@@ -1,5 +1,5 @@
 import React, { CSSProperties } from 'react';
-import { Carousel } from '../../src';
+import { Carousel, CarouselProps } from '../../src';
 import { storiesOf } from '@storybook/react';
 import faker from 'faker';
 import _ from 'lodash';
@@ -36,7 +36,8 @@ const indicatorStyles: CSSProperties = {
 const carouselLeftArrow = <div className="text-3xl text-white font-normal cursor-pointer">←</div>;
 const carouselRightArrow = <div className="text-3xl text-white font-normal cursor-pointer">→</div>;
 
-const customizedProps = {
+const customizedProps: CarouselProps = {
+  config: { centerMode: true },
   arrowStyles,
   indicatorStyles,
   carouselLeftArrow,
