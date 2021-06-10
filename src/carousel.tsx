@@ -23,6 +23,11 @@ export interface CarouselConfigProps {
   centerMode?: boolean;
 }
 
+export interface Image {
+  src: string;
+  alt?: string;
+}
+
 export interface CarouselProps {
   config?: CarouselConfigProps;
   carouselLeftArrow?: ReactNode;
@@ -33,9 +38,8 @@ export interface CarouselProps {
   height?: string;
   isMobile?: boolean;
   onChange?: (idx: number) => void;
-  children?: ReactChild[];
-  handlePrwClick?: () => void;
-  handleNextClick?: () => void;
+  items: Image[];
+  renderItem?: (item: Image, idx: number) => React.ReactChild;
 }
 
 export const Carousel: React.FC<CarouselProps> = ({
@@ -44,70 +48,55 @@ export const Carousel: React.FC<CarouselProps> = ({
   carouselRightArrow,
   selectedDotColor,
   onChange,
-  children,
   arrowStyles,
   indicatorStyles,
-  handleNextClick,
-  handlePrwClick,
-}) => (
-  <RsCarousel
-    {...config}
-    onChange={onChange}
-    renderArrowPrev={(onClickHandler, hasPrev, label) =>
-      hasPrev && (
-        <button
-          type="button"
-          onClick={() => {
-            onClickHandler();
-            handlePrwClick();
-          }}
-          title={label}
-          style={{ ...arrowStyles, left: 30 }}
-        >
-          {carouselLeftArrow}
-        </button>
-      )
-    }
-    renderArrowNext={(onClickHandler, hasNext, label) =>
-      hasNext && (
-        <button
-          type="button"
-          onClick={() => {
-            onClickHandler();
-            handleNextClick();
-          }}
-          title={label}
-          style={{ ...arrowStyles, right: 30 }}
-        >
-          {carouselRightArrow}
-        </button>
-      )
-    }
-    renderIndicator={(onClickHandler, isSelected, index, label) => {
-      if (isSelected) {
+  items,
+  renderItem,
+}) => {
+  return (
+    <RsCarousel
+      {...config}
+      onChange={onChange}
+      renderArrowPrev={(onClickHandler, hasPrev, label) =>
+        hasPrev && (
+          <button type="button" onClick={onClickHandler} title={label} style={{ ...arrowStyles, left: 30 }}>
+            {carouselLeftArrow}
+          </button>
+        )
+      }
+      renderArrowNext={(onClickHandler, hasNext, label) =>
+        hasNext && (
+          <button type="button" onClick={onClickHandler} title={label} style={{ ...arrowStyles, right: 30 }}>
+            {carouselRightArrow}
+          </button>
+        )
+      }
+      renderIndicator={(onClickHandler, isSelected, index, label) => {
+        if (isSelected) {
+          return (
+            <li
+              style={{ ...indicatorStyles, background: selectedDotColor }}
+              aria-label={`Selected: ${label} ${index + 1}`}
+              title={`Selected: ${label} ${index + 1}`}
+            />
+          );
+        }
         return (
           <li
-            style={{ ...indicatorStyles, background: selectedDotColor }}
-            aria-label={`Selected: ${label} ${index + 1}`}
-            title={`Selected: ${label} ${index + 1}`}
+            style={indicatorStyles}
+            onClick={onClickHandler}
+            onKeyDown={onClickHandler}
+            value={index}
+            key={index}
+            role="button"
+            tabIndex={0}
+            title={`${label} ${index + 1}`}
+            aria-label={`${label} ${index + 1}`}
           />
         );
-      }
-      return (
-        <li
-          style={indicatorStyles}
-          onClick={onClickHandler}
-          onKeyDown={onClickHandler}
-          value={index}
-          key={index}
-          role="button"
-          tabIndex={0}
-          title={`${label} ${index + 1}`}
-          aria-label={`${label} ${index + 1}`}
-        />
-      );
-    }}
-  >
-    {children}
-  </RsCarousel>
-);
+      }}
+    >
+      {_.map(items, (item, idx) => renderItem(item, idx))}
+    </RsCarousel>
+  );
+};

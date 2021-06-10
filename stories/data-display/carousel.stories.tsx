@@ -42,26 +42,13 @@ const customizedProps: CarouselProps = {
   indicatorStyles,
   carouselLeftArrow,
   carouselRightArrow,
+  items: images,
 };
 
 storiesOf('Data Display', module).add('Carousel', () => {
-  const handleChange = () => {
-    const items = document.querySelectorAll('ul>li:not(.selected)');
-
-    items.forEach((item) => {
-      item.classList.add('opacity-20');
-    });
-    console.log('changed');
-  };
   return (
     <div className="w-3/4">
-      <Carousel {...customizedProps} handleNextClick={handleChange} handlePrwClick={handleChange}>
-        {_.map(images, ({ src, alt }, idx) => (
-          <div key={idx}>
-            <img src={src} alt={alt} />
-          </div>
-        ))}
-      </Carousel>
+      <Carousel {...customizedProps} renderItem={({ src, alt }, idx) => <img alt={alt} src={src} key={idx} />} />
     </div>
   );
 });
