@@ -48,7 +48,7 @@ const customizedProps: CarouselProps = {
 storiesOf('Data Display', module).add('Carousel', () => {
   return (
     <div className="w-3/4">
-      <Carousel {...customizedProps} renderItem={({ src, alt }, idx) => <img alt={alt} src={src} key={idx} />} />
+      <Carousel {...customizedProps} />
     </div>
   );
 });

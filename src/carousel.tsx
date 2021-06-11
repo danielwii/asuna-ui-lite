@@ -1,5 +1,5 @@
 import _ from 'lodash';
-import React, { CSSProperties, ReactChild, ReactNode } from 'react';
+import React, { CSSProperties, ReactChild, ReactNode, useEffect, useState } from 'react';
 import { Carousel as RsCarousel } from 'react-responsive-carousel';
 
 export interface CarouselConfigProps {
@@ -53,10 +53,14 @@ export const Carousel: React.FC<CarouselProps> = ({
   items,
   renderItem,
 }) => {
+  const [selectedIdx, setSelectIdx] = useState<number>(0);
   return (
     <RsCarousel
       {...config}
-      onChange={onChange}
+      onChange={(current) => {
+        setSelectIdx(current);
+        onChange && onChange(current);
+      }}
       renderArrowPrev={(onClickHandler, hasPrev, label) =>
         hasPrev && (
           <button type="button" onClick={onClickHandler} title={label} style={{ ...arrowStyles, left: 30 }}>
@@ -96,7 +100,12 @@ export const Carousel: React.FC<CarouselProps> = ({
         );
       }}
     >
-      {_.map(items, (item, idx) => renderItem(item, idx))}
+      {_.map(items, (item, idx) => {
+        if (renderItem) {
+          return renderItem(item, idx);
+        }
+        return <img alt={item.alt} src={item.src} key={idx} className={`${selectedIdx !== idx ? 'opacity-60' : ''}`} />;
+      })}
     </RsCarousel>
   );
 };
