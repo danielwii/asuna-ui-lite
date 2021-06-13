@@ -1,5 +1,5 @@
 import _ from 'lodash';
-import React, { CSSProperties, ReactChild, ReactNode, useEffect, useState } from 'react';
+import React, { CSSProperties, ReactChild, ReactNode, useState } from 'react';
 import { Carousel as RsCarousel } from 'react-responsive-carousel';
 
 export interface CarouselConfigProps {
@@ -39,7 +39,7 @@ export interface CarouselProps {
   isMobile?: boolean;
   onChange?: (idx: number) => void;
   items: Image[];
-  renderItem?: (item: Image, idx: number) => React.ReactChild;
+  renderItem?: (item: Image, idx: number) => ReactChild;
 }
 
 export const Carousel: React.FC<CarouselProps> = ({

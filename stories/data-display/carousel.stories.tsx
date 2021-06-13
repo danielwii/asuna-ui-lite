@@ -1,4 +1,4 @@
-import React, { CSSProperties, useEffect } from 'react';
+import React, { CSSProperties } from 'react';
 import { Carousel, CarouselProps } from '../../src';
 import { storiesOf } from '@storybook/react';
 import faker from 'faker';
