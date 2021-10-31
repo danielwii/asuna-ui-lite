@@ -2,13 +2,30 @@
   "name": "@danielwii/asuna-ui-lite",
   "version": "0.0.1",
   "main": "dist/index.js",
+  "module": "dist/index.mjs",
   "types": "dist/index.d.ts",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
+  "files": [
+    "src",
+    "dist",
+    "package.json"
+  ],
   "scripts": {
-    "clean": "rm -rf dist",
-    "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook",
-    "build": "yarn clean && yarn tsc --emitDeclarationOnly && yarn build:js",
-    "build:js": "NODE_ENV=production babel src --out-dir dist --extensions '.ts,.tsx' --source-maps"
+    "rename": "find dist -depth -name \"*.js\" -exec sh -c 'mv \"$1\" \"${1%.js}.mjs\"' _ \\{\\} \\;",
+    "test": "echo 'no tests for asuna-ui yet.'",
+    "type-check": "tsc --noEmit",
+    "build:watch": "yarn clean && yarn tsc",
+    "build": "yarn clean && yarn build:types && yarn build:css && yarn build:js",
+    "build:css": "yarn tailwindcss build -i src/index.css -o dist/index.css --jit",
+    "build:tsc": "yarn clean && yarn tsc && yarn build:css",
+    "build:types": "tsc --emitDeclarationOnly",
+    "build:js": "swc src -d dist -C module.type=es6 && yarn rename && swc src -d dist -C module.type=commonjs -s",
+    "watch": "yarn dlx concurrently \"yarn type-check -w\" \"yarn build:js -w\"",
+    "clean": "rm -rf dist tsconfig.tsbuildinfo",
+    "storybook": "start-storybook -p 9009 -s public",
+    "prepack": "yarn build"
   },
   "resolutions": {
     "fsevents": "^2"
@@ -18,40 +35,32 @@
     "react-dom": ">=17.0.0"
   },
   "dependencies": {
-    "@emotion/react": "^11",
-    "lodash": "^4",
-    "react-responsive-carousel": "^3"
+    "@emotion/react": "^11.5.0",
+    "lodash": "^4.17.21",
+    "react-responsive-carousel": "^3.2.22"
   },
   "devDependencies": {
-    "@babel/cli": "^7",
-    "@babel/core": "^7",
-    "@babel/plugin-proposal-decorators": "^7",
-    "@babel/plugin-transform-runtime": "^7",
-    "@babel/preset-env": "^7",
-    "@babel/preset-typescript": "^7",
-    "@mdx-js/react": "^1",
-    "@storybook/addon-actions": "^6",
-    "@storybook/addon-docs": "^6",
-    "@storybook/addon-essentials": "^6",
-    "@storybook/addon-links": "^6",
-    "@storybook/addon-postcss": "^2",
-    "@storybook/builder-webpack5": "^6",
-    "@storybook/react": "^6",
+    "@mdx-js/react": "^1.6.22",
+    "@storybook/addon-actions": "^6.3.12",
+    "@storybook/addon-docs": "^6.3.12",
+    "@storybook/addon-essentials": "^6.3.12",
+    "@storybook/addon-links": "^6.3.12",
+    "@storybook/addon-postcss": "^2.0.0",
+    "@storybook/builder-webpack5": "^6.3.12",
+    "@storybook/react": "^6.3.12",
+    "@swc/cli": "^0.1.51",
+    "@swc/core": "^1.2.106",
     "@types/faker": "^5",
     "@types/lodash": "^4",
-    "babel-loader": "^8",
-    "babel-plugin-minify-dead-code-elimination": "^0",
-    "babel-plugin-transform-remove-console": "^6",
-    "babel-plugin-transform-remove-imports": "^1",
-    "babel-preset-react-app": "^10",
-    "faker": "^5",
-    "postcss-custom-properties": "^11",
-    "postcss-import": "^14",
-    "postcss-preset-env": "^6",
-    "prettier": "^2",
-    "react": "^17",
-    "react-dom": "^17",
-    "tailwindcss": "^2",
-    "typescript": "^4.3.2"
-  }
+    "faker": "^5.5.3",
+    "postcss-custom-properties": "^12.0.0",
+    "postcss-import": "^14.0.2",
+    "postcss-preset-env": "^6.7.0",
+    "prettier": "^2.4.1",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "tailwindcss": "^2.2.19",
+    "typescript": "^4.4.4"
+  },
+  "packageManager": "yarn@3.1.0"
 }
