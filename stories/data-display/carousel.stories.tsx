@@ -1,7 +1,7 @@
 import React, { CSSProperties } from 'react';
 import { Carousel, CarouselProps } from '../../src';
 import { storiesOf } from '@storybook/react';
-import faker from 'faker';
+import faker from '@faker-js/faker';
 import _ from 'lodash';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 

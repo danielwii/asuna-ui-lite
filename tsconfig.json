@@ -34,7 +34,6 @@
 
     /* Advanced Options */
 
-    "rootDir": "src",
     "outDir": "dist",
     // Ensure that .d.ts files are created by tsc, but not .js files
     "declaration": true,
