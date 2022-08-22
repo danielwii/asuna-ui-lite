@@ -14,7 +14,7 @@ export default {
 type Item = { avatar: string; text: string };
 type Props = PullToRefreshProps<Item>;
 const Template: Story<Props> = (args) => (
-  <div className="h-80 min-h-full border-2">
+  <div className="h-80 min-h-full border-2 p-2">
     <PullToRefresh {...args} />
   </div>
 );
@@ -26,7 +26,7 @@ Example.args = {
     text: faker.lorem.sentence(),
   })),
   render: (item, idx) => (
-    <div className="flex shadow-lg p-2" key={idx}>
+    <div className="flex shadow-lg p-2 m-2" key={idx}>
       <img className="rounded-full w-24 h-24 shadow-lg" src={item.avatar} alt="" />
       <div className="flex items-center py-5 pl-8">{item.text}</div>
     </div>

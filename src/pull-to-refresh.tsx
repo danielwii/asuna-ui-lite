@@ -130,8 +130,8 @@ export const PullToRefresh: React.VFC<PullToRefreshProps<any>> = ({ initial, onR
         </div>
       </div>
       {map(data, (item, idx, items) => {
-        const latest4 = items.length > 4 && idx === 4;
-        const latest = items.length <= 4 && idx === items.length - 1;
+        const latest4 = items.length > 4 && +idx === 4;
+        const latest = items.length <= 4 && +idx === items.length - 1;
         return latest4 || latest ? (
           <div ref={intersectionRef} key={idx}>
             {render(item, idx, items)}
