@@ -1,5 +1,7 @@
-import React from 'react';
 import { storiesOf } from '@storybook/react';
+
+import * as React from 'react';
+
 import { Switch, StoreProvider } from '../../src';
 
 storiesOf('Data Entry', module).add('Switch', () => (

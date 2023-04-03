@@ -1,5 +1,7 @@
 import { storiesOf } from '@storybook/react';
-import React from 'react';
+
+import * as React from 'react';
+
 import { Navigator, StoreProvider } from '../../src';
 
 const items = [{ name: 'Home' }, { name: 'Product' }, { name: 'Contact' }, { name: 'About' }, { name: 'News' }];

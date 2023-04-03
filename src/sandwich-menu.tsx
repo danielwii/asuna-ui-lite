@@ -15,7 +15,7 @@ export interface SandwichMenuProps<T> {
   textColor?: string;
 }
 
-const Item: React.FC<SandwichItemProps> = ({ selected, children, className }) => (
+const Item: React.FC<React.PropsWithChildren & SandwichItemProps> = ({ selected, children, className }) => (
   <li className={selected ? `${className} cursor-pointer` : 'text-gray-300'}>{children}</li>
 );
 

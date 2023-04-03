@@ -1,5 +1,6 @@
 import { storiesOf } from '@storybook/react';
-import React from 'react';
+
+import * as React from 'react';
 
 storiesOf('Index', module).add('Default', () => (
   <div className="space-y-2">

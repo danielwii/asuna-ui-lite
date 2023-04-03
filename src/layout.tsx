@@ -6,7 +6,7 @@ export interface BasicLayoutProps {
   content?: React.ReactNode;
 }
 
-const Header: React.FC<BasicLayoutProps> = ({ className, style, children }) => (
+const Header: React.FC<React.PropsWithChildren & BasicLayoutProps> = ({ className, style, children }) => (
   <div className={`${className} w-full`} style={style}>
     {children}
   </div>

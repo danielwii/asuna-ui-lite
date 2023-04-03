@@ -1,5 +1,7 @@
-import React from 'react';
 import { storiesOf } from '@storybook/react';
+
+import * as React from 'react';
+
 import { BackTop } from '../../src';
 
 storiesOf('Navigation', module).add('BackTop', () => (

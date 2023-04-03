@@ -1,10 +1,11 @@
-import React from 'react';
-import { Meta, Story } from '@storybook/react';
-import faker from '@faker-js/faker';
-import { Promise } from 'bluebird';
+import { faker } from '@faker-js/faker';
+import { Meta, StoryFn } from '@storybook/react';
+
+import * as bluebird from 'bluebird';
+import * as _ from 'lodash';
+import * as React from 'react';
 
 import { PullToRefresh, PullToRefreshProps } from '../src/pull-to-refresh';
-import _ from 'lodash';
 
 export default {
   title: 'Components/PullToRefresh',
@@ -13,7 +14,7 @@ export default {
 
 type Item = { avatar: string; text: string };
 type Props = PullToRefreshProps<Item>;
-const Template: Story<Props> = (args) => (
+const Template: StoryFn<Props> = (args) => (
   <div className="h-80 min-h-full border-2 p-2">
     <PullToRefresh {...args} />
   </div>
@@ -32,14 +33,14 @@ Example.args = {
     </div>
   ),
   onRefresh: async () => {
-    await Promise.delay(2000);
+    await bluebird.delay(2000);
     return _.range(1, 2).map((i) => ({
       avatar: `https://picsum.photos/seed/${i}/200`,
       text: faker.lorem.sentence(),
     }));
   },
   onLoad: async (page) => {
-    await Promise.delay(2000);
+    await bluebird.delay(2000);
     return _.range(1, 3).map((i) => ({
       avatar: `https://picsum.photos/seed/${Date.now()}/200`,
       text: faker.lorem.sentence(),

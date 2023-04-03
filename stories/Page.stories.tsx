@@ -1,5 +1,6 @@
-import React from 'react';
-import { Story, Meta } from '@storybook/react';
+import { StoryFn, Meta } from '@storybook/react';
+
+import * as React from 'react';
 
 import { Page, PageProps } from '../src/examples/Page';
 import * as HeaderStories from './Header.stories';
@@ -9,7 +10,7 @@ export default {
   component: Page,
 } as Meta;
 
-const Template: Story<PageProps> = (args) => <Page {...args} />;
+const Template: StoryFn<PageProps> = (args) => <Page {...args} />;
 
 export const LoggedIn = Template.bind({});
 LoggedIn.args = {

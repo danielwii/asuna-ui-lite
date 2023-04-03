@@ -14,7 +14,7 @@ export interface NavigatorProps<T> {
   renderItem: (item: T, idx: number) => React.ReactNode;
 }
 
-const Item: React.FC<NavigatorItemProps> = ({
+const Item: React.FC<React.PropsWithChildren & NavigatorItemProps> = ({
   selected,
   children,
   className = 'text-blue-500 font-bold text-shadow',

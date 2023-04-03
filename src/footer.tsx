@@ -13,7 +13,7 @@ export interface FooterProps {
   htmlCss?: string;
 }
 
-export const Footer: React.FC<FooterProps> = React.memo(
+export const Footer: React.FC<React.PropsWithChildren & FooterProps> = React.memo(
   ({
     isMobile,
     htmlContent,

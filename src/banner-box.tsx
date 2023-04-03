@@ -11,7 +11,7 @@ export interface BannerBoxProps {
   isMobile?: boolean;
 }
 
-export const BannerBox: React.FC<BannerBoxProps> = ({
+export const BannerBox: React.FC<React.PropsWithChildren & BannerBoxProps> = ({
   height,
   children,
   mask,

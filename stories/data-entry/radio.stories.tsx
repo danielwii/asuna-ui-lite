@@ -1,8 +1,10 @@
-import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { Radio, StoreProvider } from '../../src/';
 
-const items = [
+import * as React from 'react';
+
+import { Radio, RadioItem, StoreProvider } from '../../src/';
+
+const items: RadioItem[] = [
   { text: 'basketball', name: 'sports', value: 'basketball' },
   { text: 'baseball', name: 'sports', value: 'baseball' },
   { text: 'badminton', name: 'sports', value: 'badminton' },

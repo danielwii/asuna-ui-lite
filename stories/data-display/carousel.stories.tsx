@@ -1,8 +1,11 @@
-import React, { CSSProperties } from 'react';
-import { Carousel, CarouselProps } from '../../src';
+import { faker } from '@faker-js/faker';
 import { storiesOf } from '@storybook/react';
-import faker from '@faker-js/faker';
-import _ from 'lodash';
+
+import * as _ from 'lodash';
+import * as React from 'react';
+
+import { Carousel, CarouselProps } from '../../src';
+
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 
 const images = [
@@ -13,7 +16,7 @@ const images = [
   { src: faker.image.city(), alt: 'alt' },
 ];
 
-const arrowStyles: CSSProperties = {
+const arrowStyles: React.CSSProperties = {
   position: 'absolute',
   zIndex: 2,
   top: 'calc(50% - 15px)',
@@ -23,7 +26,7 @@ const arrowStyles: CSSProperties = {
   outline: 0,
 };
 
-const indicatorStyles: CSSProperties = {
+const indicatorStyles: React.CSSProperties = {
   background: '#fff',
   width: 8,
   height: 8,

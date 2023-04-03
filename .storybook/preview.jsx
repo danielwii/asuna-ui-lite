@@ -1,6 +1,6 @@
 import React from 'react';
 
-import '../src/index.css';
+import '../src/tailwind.css';
 
 export const decorators = [
   (Story) => (

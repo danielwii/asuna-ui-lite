@@ -1,5 +1,6 @@
-import React from 'react';
-import { Story, Meta } from '@storybook/react';
+import type { Meta, StoryFn } from '@storybook/react';
+
+import * as React from 'react';
 
 import { Header, HeaderProps } from '../src/examples/Header';
 
@@ -8,7 +9,7 @@ export default {
   component: Header,
 } as Meta;
 
-const Template: Story<HeaderProps> = (args) => <Header {...args} />;
+const Template: StoryFn<HeaderProps> = (args) => <Header {...args} />;
 
 export const LoggedIn = Template.bind({});
 LoggedIn.args = {
