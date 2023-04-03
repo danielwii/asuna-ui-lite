@@ -33,6 +33,7 @@ Example.args = {
     </div>
   ),
   onRefresh: async () => {
+    // @ts-ignore
     await bluebird.delay(2000);
     return _.range(1, 2).map((i) => ({
       avatar: `https://picsum.photos/seed/${i}/200`,
@@ -40,6 +41,7 @@ Example.args = {
     }));
   },
   onLoad: async (page) => {
+    // @ts-ignore
     await bluebird.delay(2000);
     return _.range(1, 3).map((i) => ({
       avatar: `https://picsum.photos/seed/${Date.now()}/200`,
